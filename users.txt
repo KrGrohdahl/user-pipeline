@@ -1,0 +1,6 @@
+Alice,True,True
+Bob,False,False
+Charlie,True,False
+Dana,yes,1
+Evan,no
+BadLine
