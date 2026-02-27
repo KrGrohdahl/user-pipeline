@@ -1,0 +1,4 @@
+Test_user, true, false
+Fakeuser,true
+Badline
+Real_users, true, true
