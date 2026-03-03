@@ -1,7 +1,9 @@
+from services import calc_active_users
+
 def generate_summary(users, active_admins):
     return {
         "total_users": len(users),
-        "active_users": sum(1 for u in users if u["is_active"]),
+        "active_users": calc_active_users(users),
         "active_admins": len(active_admins),
         "active_admin_names": [u["name"] for u in active_admins],
     }

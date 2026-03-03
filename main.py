@@ -8,7 +8,6 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(levelname)s: %(message)s"
 )
-
 logger = logging.getLogger(__name__)
 
 if len(sys.argv) > 1:
@@ -17,7 +16,12 @@ else:
     filename = "users.txt"
 
 def main():
-    users = load_users_from_file(filename)
+    try:
+        users = load_users_from_file(filename)
+    except FileNotFoundError:
+        logger.error(f"{filename} not found.")
+        return
+
     active_admins = get_active_admins(users)
     summary = generate_summary(users, active_admins)
     print_summary(summary)
